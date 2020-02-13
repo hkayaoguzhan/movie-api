@@ -108,6 +108,32 @@ router.get('/:director_id', (req, res) => {
     }).catch((err) => {
         res.json(err);
     })
-})
+});
+
+router.put('/:director_id', (req, res, next) => {
+    const promise = Director.findByIdAndUpdate(req.params.director_id, req.body, { new: true });
+  
+    promise.then((data) => {
+      if(!data)
+        next({ message:'The director not found.', code: 99});
+      
+      res.json(data);
+    }).catch((err) => {
+      res.json(err);
+    });
+  });
+
+  router.delete('/:director_id', (req, res, next) => {
+    const promise = Director.findByIdAndDelete(req.params.director_id);
+  
+    promise.then((data) => {
+      if(!data)
+        next({ message:'The director not found.', code: 99});
+      
+      res.json({ status: 200, message: "Veri silindi."});
+    }).catch((err) => {
+      res.json(err);
+    });
+  })
 
 module.exports = router;
