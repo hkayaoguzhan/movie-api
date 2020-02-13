@@ -1,4 +1,9 @@
 # movie-api
-Node JS Movie-App 
+Node JS Movie-Api
 
     Express.js
+
+    Usage
+
+    npm install 
+    npm start
