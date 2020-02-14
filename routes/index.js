@@ -48,7 +48,7 @@ router.post("/authenticate", (req, res) => {
         });
       } else {
         bcrypt.compare(password, user.password).then(result => {
-          if(!result) {
+          if (!result) {
             res.json({
               status: false,
               message: "Wrong password"
