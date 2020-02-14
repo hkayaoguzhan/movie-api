@@ -5,7 +5,7 @@ const url =
 module.exports = () => {
   mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
   mongoose.connection.on("open", () => {
-    console.log("MongoDb is Connected");
+    //console.log("MongoDb is Connected");
   });
   mongoose.connection.on("error", err => {
     console.log("MongoDb Err", err);

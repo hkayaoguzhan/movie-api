@@ -7,3 +7,6 @@ Node JS Movie-Api
 
     npm install 
     npm start
+
+
+    
