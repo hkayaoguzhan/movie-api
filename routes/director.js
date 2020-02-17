@@ -4,7 +4,7 @@ const router = express.Router();
 
 const Director = require("../models/Director");
 
-/* GET home page. */
+//Create New Director
 router.post("/new", (req, res, next) => {
   const director = new Director(req.body);
   const promise = director.save();
@@ -17,6 +17,7 @@ router.post("/new", (req, res, next) => {
     });
 });
 
+//Get Director
 router.get("/", (req, res) => {
   const promise = Director.aggregate([
     {
@@ -63,7 +64,7 @@ router.get("/", (req, res) => {
       res.json(err);
     });
 });
-
+// Get Director By ID
 router.get("/:director_id", (req, res) => {
   const promise = Director.aggregate([
     {
@@ -116,6 +117,7 @@ router.get("/:director_id", (req, res) => {
     });
 });
 
+//Update Director By ID
 router.put("/:director_id", (req, res, next) => {
   const promise = Director.findByIdAndUpdate(req.params.director_id, req.body, {
     new: true
@@ -132,6 +134,7 @@ router.put("/:director_id", (req, res, next) => {
     });
 });
 
+//Delete Director By ID
 router.delete("/:director_id", (req, res, next) => {
   const promise = Director.findByIdAndDelete(req.params.director_id);
 
